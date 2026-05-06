@@ -121,6 +121,8 @@ interface Post {
   caption: string
   date: string
   isRealFollowing?: boolean // Post real de alguem que o usuario segue
+  isVerified?: boolean // Conta verificada (famoso)
+  isLikedByUser?: boolean // Post curtido pelo usuario (posts trancados)
 }
 
 interface FollowingFeedItem {
@@ -299,6 +301,36 @@ export function InstagramFeed({ profileData, username, followingFeed = [] }: Ins
       caption: "Rio de Janeiro is still beautiful ...",
       date: "3 hours ago",
     },
+    // Post de famoso - Neymar Jr
+    {
+      id: "famous-1",
+      username: "neymarjr****",
+      userImage: "https://wsrv.nl/?url=https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Neymar_Jr_in_2022%2C_photographed_by_Magnus_Kullander.jpg/220px-Neymar_Jr_in_2022%2C_photographed_by_Magnus_Kullander.jpg&w=150&h=150&fit=cover",
+      postImage: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800&h=1000&fit=crop&q=80",
+      likes: 4823100,
+      comments: 38942,
+      caption: "Treino pesado, resultado garantido 💪⚽ #NeymarJr #Futebol",
+      date: "1 hour ago",
+      isVerified: true,
+    },
+    // Post trancado - curtido pelo usuario
+    {
+      id: "fake-locked-1",
+      username: "bruna_marq****",
+      userImage: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=150&h=150&fit=crop&q=80",
+      postImage: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800&h=1000&fit=crop&q=80",
+      carouselImages: [
+        { url: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800&h=1000&fit=crop&q=80", locked: false },
+        { url: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800&h=1000&fit=crop&q=80", locked: true },
+        { url: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=800&h=1000&fit=crop&q=80", locked: true },
+      ],
+      likes: 12847,
+      comments: 431,
+      caption: "Domingo de praia com tudo ☀️🌊 feliz demais... ver mais",
+      date: "4 hours ago",
+      isLikedByUser: true,
+      isVerified: true,
+    },
     {
       id: "fake-2",
       username: "francielle****",
@@ -309,6 +341,18 @@ export function InstagramFeed({ profileData, username, followingFeed = [] }: Ins
       caption: "beautiful day ....",
       date: "5 hours ago",
     },
+    // Post de famoso - Anitta
+    {
+      id: "famous-2",
+      username: "anitta****",
+      userImage: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=150&h=150&fit=crop&q=80",
+      postImage: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&h=1000&fit=crop&q=80",
+      likes: 2341000,
+      comments: 18734,
+      caption: "Girl from Rio 🔥🇧🇷 novo projeto chegando, prepara! #Anitta",
+      date: "2 hours ago",
+      isVerified: true,
+    },
     {
       id: "fake-3",
       username: "laisa****",
@@ -316,8 +360,38 @@ export function InstagramFeed({ profileData, username, followingFeed = [] }: Ins
       postImage: "/eyelash-extensions-close-up.jpg",
       likes: 15,
       comments: 4,
-      caption: "Lash lamination - perfect solution for those who love natural beauty 🔥 on per... more",
+      caption: "Lash lamination - solucao perfeita pra quem ama a beleza natural 🔥 ver mais",
       date: "7 hours ago",
+    },
+    // Post trancado - curtido pelo usuario
+    {
+      id: "fake-locked-2",
+      username: "carol_sampa****",
+      userImage: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1488716820095-cbe80883c496?w=150&h=150&fit=crop&q=80",
+      postImage: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1488716820095-cbe80883c496?w=800&h=1000&fit=crop&q=80",
+      carouselImages: [
+        { url: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1488716820095-cbe80883c496?w=800&h=1000&fit=crop&q=80", locked: false },
+        { url: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=800&h=1000&fit=crop&q=80", locked: true },
+        { url: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1504199955985-5cb80c61be80?w=800&h=1000&fit=crop&q=80", locked: true },
+        { url: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=800&h=1000&fit=crop&q=80", locked: true },
+      ],
+      likes: 3241,
+      comments: 187,
+      caption: "Sexta que eu precisava 🙌✨ ver mais",
+      date: "6 hours ago",
+      isLikedByUser: true,
+    },
+    // Post de famoso - Fiuk
+    {
+      id: "famous-3",
+      username: "fiuk****",
+      userImage: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&q=80",
+      postImage: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=1000&fit=crop&q=80",
+      likes: 189430,
+      comments: 4231,
+      caption: "Studio vida 🎶🎵 nova musica em breve... #Fiuk #Music",
+      date: "3 hours ago",
+      isVerified: true,
     },
     {
       id: "fake-4",
@@ -326,8 +400,25 @@ export function InstagramFeed({ profileData, username, followingFeed = [] }: Ins
       postImage: "/beauty-training-certificates.jpg",
       likes: 17,
       comments: 3,
-      caption: "👩‍🎓👩‍🎓👩‍🎓 ENROLLING STUDENTS FOR THE LAST TRAINING AT OLD PRICE ❗ 💥... more",
+      caption: "ULTIMAS VAGAS PARA O TREINAMENTO NO PRECO ANTIGO ❗ 💥 ver mais",
       date: "8 hours ago",
+    },
+    // Post trancado - curtido pelo usuario
+    {
+      id: "fake-locked-3",
+      username: "tati_br****",
+      userImage: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?w=150&h=150&fit=crop&q=80",
+      postImage: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1516726817505-f5ed825624d8?w=800&h=1000&fit=crop&q=80",
+      carouselImages: [
+        { url: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1516726817505-f5ed825624d8?w=800&h=1000&fit=crop&q=80", locked: false },
+        { url: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?w=800&h=1000&fit=crop&q=80", locked: true },
+        { url: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&h=1000&fit=crop&q=80", locked: true },
+      ],
+      likes: 8742,
+      comments: 342,
+      caption: "Verão que nunca acaba 🌞🌴 ver mais",
+      date: "5 hours ago",
+      isLikedByUser: true,
     },
     {
       id: "fake-5",
@@ -341,8 +432,20 @@ export function InstagramFeed({ profileData, username, followingFeed = [] }: Ins
       ],
       likes: 23,
       comments: 4,
-      caption: "well this year I spent mostly at the gym, a bit at home and 7 days in the countryside... more",
+      caption: "esse ano passei a maioria do tempo na academia, um pouco em casa e 7 dias no interior... ver mais",
       date: "2 days ago",
+    },
+    // Post de famoso - Larissa Manoela
+    {
+      id: "famous-4",
+      username: "larimanoela****",
+      userImage: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=150&h=150&fit=crop&q=80",
+      postImage: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&h=1000&fit=crop&q=80",
+      likes: 1872400,
+      comments: 22187,
+      caption: "Amor em cada detalhe 🤍✨ #Feliz #Gratidao",
+      date: "5 hours ago",
+      isVerified: true,
     },
     {
       id: "fake-6",
@@ -354,6 +457,25 @@ export function InstagramFeed({ profileData, username, followingFeed = [] }: Ins
       caption: "love my family ❤️🎆",
       date: "1 day ago",
     },
+    // Post trancado - curtido pelo usuario
+    {
+      id: "fake-locked-4",
+      username: "mari_rio****",
+      userImage: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=150&h=150&fit=crop&q=80",
+      postImage: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&h=1000&fit=crop&q=80",
+      carouselImages: [
+        { url: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&h=1000&fit=crop&q=80", locked: false },
+        { url: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=800&h=1000&fit=crop&q=80", locked: true },
+        { url: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800&h=1000&fit=crop&q=80", locked: true },
+        { url: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1526510747491-58f928ec870f?w=800&h=1000&fit=crop&q=80", locked: true },
+        { url: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1532074205216-d0e1f4b87368?w=800&h=1000&fit=crop&q=80", locked: true },
+      ],
+      likes: 5621,
+      comments: 263,
+      caption: "Saindo mais cedo hoje, vida boa 🥂🌇 ver mais",
+      date: "3 hours ago",
+      isLikedByUser: true,
+    },
     {
       id: "fake-7",
       username: "julia****",
@@ -361,8 +483,20 @@ export function InstagramFeed({ profileData, username, followingFeed = [] }: Ins
       postImage: "/images/maldives-couple.png",
       likes: 3542,
       comments: 234,
-      caption: "maldives with my love ....",
+      caption: "maldivas com meu amor ....",
       date: "8 hours ago",
+    },
+    // Post de famoso - Virgínia Fonseca
+    {
+      id: "famous-5",
+      username: "virginia****",
+      userImage: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1488716820095-cbe80883c496?w=150&h=150&fit=crop&q=80",
+      postImage: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=1000&fit=crop&q=80",
+      likes: 3218000,
+      comments: 41823,
+      caption: "Familia e mais familia 👨‍👩‍👧‍👦❤️ obrigada a todos pelo carinho, amo vcs! #Virginia #WBL",
+      date: "1 hour ago",
+      isVerified: true,
     },
     {
       id: "fake-8",
@@ -371,8 +505,37 @@ export function InstagramFeed({ profileData, username, followingFeed = [] }: Ins
       postImage: "/images/7baf4187f1-b552-4f74-80e0-6623ce4ddd0b-7d.png",
       likes: 892,
       comments: 45,
-      caption: "beach sun and a perfect day",
+      caption: "praia sol e um dia perfeito",
       date: "2 hours ago",
+    },
+    // Post trancado - curtido pelo usuario
+    {
+      id: "fake-locked-5",
+      username: "dani_sp****",
+      userImage: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&h=150&fit=crop&q=80",
+      postImage: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=1000&fit=crop&q=80",
+      carouselImages: [
+        { url: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=1000&fit=crop&q=80", locked: false },
+        { url: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&h=1000&fit=crop&q=80", locked: true },
+        { url: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=800&h=1000&fit=crop&q=80", locked: true },
+      ],
+      likes: 2184,
+      comments: 97,
+      caption: "Bom dia mundo lindo 🌸☀️ ver mais",
+      date: "9 hours ago",
+      isLikedByUser: true,
+    },
+    // Post de famoso - Marquezine
+    {
+      id: "famous-6",
+      username: "marquezing****",
+      userImage: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1526510747491-58f928ec870f?w=150&h=150&fit=crop&q=80",
+      postImage: "https://wsrv.nl/?url=https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&h=1000&fit=crop&q=80",
+      likes: 5473200,
+      comments: 67432,
+      caption: "Paris always a good idea 🗼💫 #Marquezine",
+      date: "6 hours ago",
+      isVerified: true,
     },
   ]
 
@@ -380,8 +543,8 @@ export function InstagramFeed({ profileData, username, followingFeed = [] }: Ins
   // Se tiver posts reais do following, mostra eles
   // Se nao conseguir puxar, mostra os fake posts como antes
   const allPosts = followingPosts.length > 0 
-    ? [...followingPosts, ...fakePosts].slice(0, 12)
-    : [...fakePosts].slice(0, 12)
+    ? [...followingPosts, ...fakePosts].slice(0, 20)
+    : [...fakePosts].slice(0, 20)
 
   const ownerData = profileData?.result?.edges?.[0]?.node?.owner
 
@@ -637,7 +800,7 @@ export function InstagramFeed({ profileData, username, followingFeed = [] }: Ins
             <div key={post.id} className="pb-3">
               {/* Post Header */}
               <div className="flex items-center justify-between px-3 py-2.5">
-                <div className="flex items-center gap-2.5">
+                  <div className="flex items-center gap-2.5">
                   <div
                     className={`w-8 h-8 rounded-full overflow-hidden flex-shrink-0 bg-gray-800 ${post.id === "fake-1" ? "ring-2 ring-pink-500 cursor-pointer" : ""}`}
                     onClick={() => post.id === "fake-1" && handleOpenJadeStory()}
@@ -655,7 +818,12 @@ export function InstagramFeed({ profileData, username, followingFeed = [] }: Ins
                       }}
                     />
                   </div>
-                  <span className="font-semibold text-sm">{post.username}</span>
+                  <div className="flex items-center gap-1">
+                    <span className="font-semibold text-sm">{post.username}</span>
+                    {post.isVerified && (
+                      <CheckCircle2 className="w-3.5 h-3.5 text-blue-400 fill-blue-400 flex-shrink-0" />
+                    )}
+                  </div>
                 </div>
                 <MoreVertical className="w-5 h-5" />
               </div>
@@ -685,10 +853,16 @@ export function InstagramFeed({ profileData, username, followingFeed = [] }: Ins
                           />
                           {/* Lock overlay for locked images */}
                           {currentImage.locked && (
-                            <div className="absolute inset-0 flex items-center justify-center cursor-pointer">
-                              <div className="bg-black/40 rounded-full p-4">
+                            <div className="absolute inset-0 flex flex-col items-center justify-center cursor-pointer gap-3">
+                              <div className="bg-black/50 rounded-full p-4">
                                 <Lock className="w-8 h-8 text-white" />
                               </div>
+                              {post.isLikedByUser && (
+                                <div className="flex items-center gap-1.5 bg-black/60 px-3 py-1.5 rounded-full">
+                                  <Heart className="w-4 h-4 text-red-500 fill-red-500" />
+                                  <span className="text-white text-xs font-medium">Voce curtiu esta foto</span>
+                                </div>
+                              )}
                             </div>
                           )}
                         </div>
@@ -752,21 +926,41 @@ export function InstagramFeed({ profileData, username, followingFeed = [] }: Ins
               <div className="px-3 py-2">
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-4">
-                    <Heart className="w-[26px] h-[26px]" onClick={handleBlockedAction} />
+                    {post.isLikedByUser ? (
+                      <Heart
+                        className="w-[26px] h-[26px] text-red-500 fill-red-500 cursor-pointer"
+                        onClick={handleLockedImageClick}
+                      />
+                    ) : (
+                      <Heart className="w-[26px] h-[26px] cursor-pointer" onClick={handleBlockedAction} />
+                    )}
                     <MessageCircle className="w-[26px] h-[26px]" onClick={handleBlockedAction} />
                     <Send className="w-[26px] h-[26px] rotate-[25deg]" />
                   </div>
                   <Bookmark className="w-6 h-6" />
                 </div>
 
-                <p className="font-semibold text-sm mb-1">{post.likes} likes</p>
+                <p className="font-semibold text-sm mb-1">
+                  {post.isLikedByUser ? (
+                    <>
+                      <span className="text-red-400">Voce</span> e outras{" "}
+                      {post.likes.toLocaleString("pt-BR")} pessoas curtiram
+                    </>
+                  ) : (
+                    <>{post.likes.toLocaleString("pt-BR")} curtidas</>
+                  )}
+                </p>
 
                 <div className="text-sm leading-tight">
                   <span className="font-semibold mr-2">{post.username}</span>
                   <span className="text-gray-300">{post.caption}</span>
                 </div>
 
-                {post.comments > 0 && <p className="text-gray-500 text-sm mt-1">View all {post.comments} comments</p>}
+                {post.comments > 0 && (
+                  <p className="text-gray-500 text-sm mt-1">
+                    Ver todos os {post.comments.toLocaleString("pt-BR")} comentarios
+                  </p>
+                )}
 
                 <p className="text-gray-500 text-[11px] mt-1 uppercase">{post.date}</p>
               </div>
