@@ -424,15 +424,17 @@ export function InstagramFeed({ profileData, username, followingFeed = [] }: Ins
   })
 
   const fakeStories = [
-    { id: 3, username: "xxx*****", image: "/images/story-avatar-1.jpeg", borderColor: "green" },
-    { id: 4, username: "xxx*****", image: "/images/story-avatar-2.jpeg", borderColor: "green" },
-    { id: 5, username: "JUL*****", image: "/images/story-avatar-3.jpeg", borderColor: "red" },
-    { id: 6, username: "mar*****", image: "/woman-smiling-photo.jpg", borderColor: "red" },
-    { id: 7, username: "ana*****", image: "/brunette-woman-profile.jpg", borderColor: "red", locked: true },
-    { id: 8, username: "bia*****", image: "/blonde-woman-instagram.jpg", borderColor: "red", locked: true },
-    { id: 9, username: "car*****", image: "/redhead-woman-photo.jpg", borderColor: "red", locked: true },
-    { id: 10, username: "fer*****", image: "/attractive-woman-profile.png", borderColor: "red", locked: true },
-    { id: 11, username: "jul*****", image: "/young-woman-selfie.jpg", borderColor: "red", locked: true },
+    { id: 3, username: "rincon061", image: "https://unavatar.io/instagram/rincon061", borderColor: "gradient" },
+    { id: 4, username: "mari.mene****", image: "https://unavatar.io/instagram/marimenezes", borderColor: "gradient" },
+    { id: 5, username: "zuck", image: "https://unavatar.io/instagram/zuck", borderColor: "gradient" },
+    { id: 6, username: "justinbieber", image: "https://unavatar.io/instagram/justinbieber", borderColor: "gradient" },
+    { id: 7, username: "sheinofficial", image: "https://unavatar.io/instagram/sheinofficial", borderColor: "gradient" },
+    { id: 8, username: "JUL*****", image: "/images/story-avatar-3.jpeg", borderColor: "red" },
+    { id: 9, username: "mar*****", image: "/woman-smiling-photo.jpg", borderColor: "red" },
+    { id: 10, username: "ana*****", image: "/brunette-woman-profile.jpg", borderColor: "red", locked: true },
+    { id: 11, username: "bia*****", image: "/blonde-woman-instagram.jpg", borderColor: "red", locked: true },
+    { id: 12, username: "car*****", image: "/redhead-woman-photo.jpg", borderColor: "red", locked: true },
+    { id: 13, username: "fer*****", image: "/attractive-woman-profile.png", borderColor: "red", locked: true },
   ]
 
   const stories = [
