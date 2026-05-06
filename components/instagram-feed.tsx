@@ -249,7 +249,7 @@ export function InstagramFeed({ profileData, username, followingFeed = [] }: Ins
     return {
       id: `following-${index}`,
       username: maskedUsername,
-      userImage: user.profile_pic_url || user.profile_pic_url_hd || "/placeholder.svg",
+      userImage: user.profile_pic_url || "/placeholder.svg",
       postImage: postImage,
       carouselImages: carouselImages.length > 0 ? carouselImages : undefined,
       likes: likes,
@@ -555,28 +555,30 @@ export function InstagramFeed({ profileData, username, followingFeed = [] }: Ins
       image: feedItem.user.profile_pic_url || "/placeholder.svg",
       borderColor: "gradient",
       isRealFollowing: true,
+      isOwn: false,
+      locked: false,
     }
   })
 
   const fakeStories = [
-    { id: 3, username: "rincon061", image: "https://unavatar.io/instagram/rincon061", borderColor: "gradient" },
-    { id: 4, username: "mari.mene****", image: "https://unavatar.io/instagram/marimenezes", borderColor: "gradient" },
-    { id: 5, username: "zuck", image: "https://unavatar.io/instagram/zuck", borderColor: "gradient" },
-    { id: 6, username: "justinbieber", image: "https://unavatar.io/instagram/justinbieber", borderColor: "gradient" },
-    { id: 7, username: "sheinofficial", image: "https://unavatar.io/instagram/sheinofficial", borderColor: "gradient" },
-    { id: 8, username: "JUL*****", image: "/images/story-avatar-3.jpeg", borderColor: "red" },
-    { id: 9, username: "mar*****", image: "/woman-smiling-photo.jpg", borderColor: "red" },
-    { id: 10, username: "ana*****", image: "/brunette-woman-profile.jpg", borderColor: "red", locked: true },
-    { id: 11, username: "bia*****", image: "/blonde-woman-instagram.jpg", borderColor: "red", locked: true },
-    { id: 12, username: "car*****", image: "/redhead-woman-photo.jpg", borderColor: "red", locked: true },
-    { id: 13, username: "fer*****", image: "/attractive-woman-profile.png", borderColor: "red", locked: true },
-    { id: 14, username: "sab*****", image: "/images/alice.jpeg", borderColor: "red", locked: true },
-    { id: 15, username: "kel*****", image: "/images/francielle-avatar.png", borderColor: "red", locked: true },
+    { id: 3, username: "rincon061", image: "https://unavatar.io/instagram/rincon061", borderColor: "gradient", isOwn: false, locked: false },
+    { id: 4, username: "mari.mene****", image: "https://unavatar.io/instagram/marimenezes", borderColor: "gradient", isOwn: false, locked: false },
+    { id: 5, username: "zuck", image: "https://unavatar.io/instagram/zuck", borderColor: "gradient", isOwn: false, locked: false },
+    { id: 6, username: "justinbieber", image: "https://unavatar.io/instagram/justinbieber", borderColor: "gradient", isOwn: false, locked: false },
+    { id: 7, username: "sheinofficial", image: "https://unavatar.io/instagram/sheinofficial", borderColor: "gradient", isOwn: false, locked: false },
+    { id: 8, username: "JUL*****", image: "/images/story-avatar-3.jpeg", borderColor: "red", isOwn: false, locked: false },
+    { id: 9, username: "mar*****", image: "/woman-smiling-photo.jpg", borderColor: "red", isOwn: false, locked: false },
+    { id: 10, username: "ana*****", image: "/brunette-woman-profile.jpg", borderColor: "red", isOwn: false, locked: true },
+    { id: 11, username: "bia*****", image: "/blonde-woman-instagram.jpg", borderColor: "red", isOwn: false, locked: true },
+    { id: 12, username: "car*****", image: "/redhead-woman-photo.jpg", borderColor: "red", isOwn: false, locked: true },
+    { id: 13, username: "fer*****", image: "/attractive-woman-profile.png", borderColor: "red", isOwn: false, locked: true },
+    { id: 14, username: "sab*****", image: "/images/alice.jpeg", borderColor: "red", isOwn: false, locked: true },
+    { id: 15, username: "kel*****", image: "/images/francielle-avatar.png", borderColor: "red", isOwn: false, locked: true },
   ]
 
   const stories = [
     // Primeiro story e o do usuario pesquisado (dados REAIS)
-    { id: 1, username: "Your story", image: userProfilePic, isOwn: true, borderColor: "none" },
+    { id: 1, username: "Your story", image: userProfilePic, isOwn: true, borderColor: "none", locked: false },
     // Stories REAIS das pessoas que o usuario segue (se tiver)
     ...realFollowingStories,
     // Completa com fake stories se necessario
