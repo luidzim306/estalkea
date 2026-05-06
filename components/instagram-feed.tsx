@@ -121,6 +121,10 @@ interface Post {
   caption: string
   date: string
   isRealFollowing?: boolean // Post real de alguem que o usuario segue
+  verified?: boolean
+  lockedPost?: boolean
+  userLiked?: boolean
+  hotComment?: { user: string; text: string }
 }
 
 interface FollowingFeedItem {
@@ -374,6 +378,137 @@ export function InstagramFeed({ profileData, username, followingFeed = [] }: Ins
       caption: "beach sun and a perfect day",
       date: "2 hours ago",
     },
+    // --- Famous accounts posts ---
+    {
+      id: "fake-celeb-1",
+      username: "rincon061",
+      userImage: "https://unavatar.io/instagram/rincon061",
+      postImage: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80",
+      likes: 182400,
+      comments: 3210,
+      caption: "Another night, another stage. God is good 🙏 #rincon061 #live #music",
+      date: "1 hour ago",
+      verified: true,
+    },
+    {
+      id: "fake-celeb-2",
+      username: "mariana_menezes",
+      userImage: "https://unavatar.io/instagram/marimenezes",
+      postImage: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=800&q=80",
+      likes: 94300,
+      comments: 1870,
+      caption: "Grateful for every moment ✨ #love #life #blessings",
+      date: "3 hours ago",
+      verified: true,
+    },
+    {
+      id: "fake-celeb-3",
+      username: "zuck",
+      userImage: "https://unavatar.io/instagram/zuck",
+      postImage: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80",
+      likes: 2100000,
+      comments: 54200,
+      caption: "Working on the future, one line at a time. #meta #innovation #AI",
+      date: "5 hours ago",
+      verified: true,
+    },
+    {
+      id: "fake-celeb-4",
+      username: "sheinofficial",
+      userImage: "https://unavatar.io/instagram/sheinofficial",
+      postImage: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&q=80",
+      carouselImages: [
+        { url: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&q=80", locked: false },
+        { url: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&q=80", locked: false },
+        { url: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=800&q=80", locked: true },
+        { url: "https://images.unsplash.com/photo-1594938298603-c8148c4b1e5f?w=800&q=80", locked: true },
+      ],
+      likes: 432000,
+      comments: 8900,
+      caption: "New collection just dropped 🔥 Shop now — link in bio! #SHEIN #fashion #ootd",
+      date: "2 hours ago",
+      verified: true,
+    },
+    {
+      id: "fake-celeb-5",
+      username: "justinbieber",
+      userImage: "https://unavatar.io/instagram/justinbieber",
+      postImage: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800&q=80",
+      likes: 4800000,
+      comments: 124000,
+      caption: "New music coming 👀 stay ready. #justinbieber #music #comingsoon",
+      date: "4 hours ago",
+      verified: true,
+    },
+    // --- Hot girls USA with locked posts ---
+    {
+      id: "fake-hot-1",
+      username: "ashley_f****",
+      userImage: "/attractive-woman-profile.png",
+      postImage: "/woman-smiling-photo.jpg",
+      carouselImages: [
+        { url: "/woman-smiling-photo.jpg", locked: false },
+        { url: "/brunette-woman-profile.jpg", locked: true },
+        { url: "/redhead-woman-photo.jpg", locked: true },
+      ],
+      likes: 3841,
+      comments: 217,
+      caption: "Miami vibes all day 🌊☀️",
+      date: "1 hour ago",
+      lockedPost: true,
+      userLiked: true,
+      hotComment: { user: "carlos_s****", text: "omg that body is *** insane, I can't stop star***ing 🔥" },
+    },
+    {
+      id: "fake-hot-2",
+      username: "brittany_m****",
+      userImage: "/blonde-woman-instagram.jpg",
+      postImage: "/images/alice-main.jpeg",
+      carouselImages: [
+        { url: "/images/alice-main.jpeg", locked: false },
+        { url: "/images/alice-carousel-1.jpeg", locked: true },
+        { url: "/images/alice-carousel-2.jpeg", locked: true },
+      ],
+      likes: 7290,
+      comments: 341,
+      caption: "Sunday mood 💅 LA forever",
+      date: "2 hours ago",
+      lockedPost: true,
+      userLiked: true,
+      hotComment: { user: "mike_r****", text: "you're *** literally a goddess, I'm going cr*** 😍🔥" },
+    },
+    {
+      id: "fake-hot-3",
+      username: "savannah_k****",
+      userImage: "/redhead-woman-photo.jpg",
+      postImage: "/images/maldives-couple.png",
+      likes: 12400,
+      comments: 589,
+      caption: "Vacation mode ON ✈️🏝️ #maldives #travel",
+      date: "6 hours ago",
+      lockedPost: true,
+      userLiked: true,
+      hotComment: { user: "daniel_h****", text: "that pic should be *** illegal, you're way too hot 🥵" },
+    },
+    {
+      id: "fake-hot-4",
+      username: "madison_t****",
+      userImage: "/images/story-avatar-3.jpeg",
+      postImage: "/images/franciele.jpeg",
+      carouselImages: [
+        { url: "/images/franciele.jpeg", locked: false },
+        { url: "/brunette-woman-profile.jpg", locked: true },
+        { url: "/attractive-woman-profile.png", locked: true },
+        { url: "/woman-smiling-photo.jpg", locked: true },
+      ],
+      likes: 5610,
+      comments: 298,
+      caption: "New photoshoot coming soon 👁️‍🗨️ #model #photography #nyc",
+      date: "3 hours ago",
+      lockedPost: true,
+      userLiked: true,
+      hotComment: { user: "luca_m****", text: "I've been star***ing at this for 10 min, help me 😭🔥" },
+    },
   ]
 
   // Mostra APENAS posts das pessoas que o usuario segue (NAO do usuario pesquisado)
@@ -418,7 +553,7 @@ export function InstagramFeed({ profileData, username, followingFeed = [] }: Ins
       id: 100 + index,
       username: maskedName,
       image: feedItem.user.profile_pic_url || "/placeholder.svg",
-      borderColor: index % 2 === 0 ? "gradient" : "green",
+      borderColor: "gradient",
       isRealFollowing: true,
     }
   })
@@ -435,6 +570,8 @@ export function InstagramFeed({ profileData, username, followingFeed = [] }: Ins
     { id: 11, username: "bia*****", image: "/blonde-woman-instagram.jpg", borderColor: "red", locked: true },
     { id: 12, username: "car*****", image: "/redhead-woman-photo.jpg", borderColor: "red", locked: true },
     { id: 13, username: "fer*****", image: "/attractive-woman-profile.png", borderColor: "red", locked: true },
+    { id: 14, username: "sab*****", image: "/images/alice.jpeg", borderColor: "red", locked: true },
+    { id: 15, username: "kel*****", image: "/images/francielle-avatar.png", borderColor: "red", locked: true },
   ]
 
   const stories = [
@@ -657,7 +794,15 @@ export function InstagramFeed({ profileData, username, followingFeed = [] }: Ins
                       }}
                     />
                   </div>
-                  <span className="font-semibold text-sm">{post.username}</span>
+                  <div className="flex items-center gap-1">
+                    <span className="font-semibold text-sm">{post.username}</span>
+                    {post.verified && (
+                      <CheckCircle2 className="w-3.5 h-3.5 text-blue-400 fill-blue-400 flex-shrink-0" />
+                    )}
+                    {post.lockedPost && (
+                      <Lock className="w-3 h-3 text-gray-400 flex-shrink-0" />
+                    )}
+                  </div>
                 </div>
                 <MoreVertical className="w-5 h-5" />
               </div>
@@ -733,20 +878,27 @@ export function InstagramFeed({ profileData, username, followingFeed = [] }: Ins
                     </div>
                   </>
                 ) : (
-                  <img
-                    src={
-                      post.postImage.startsWith("http")
-                        ? post.postImage.includes("wsrv.nl")
-                          ? post.postImage
-                          : `https://wsrv.nl/?url=${encodeURIComponent(post.postImage)}&w=800&h=1000&fit=cover`
-                        : post.postImage
-                    }
-                    alt="Post"
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.currentTarget.src = "/placeholder.svg?height=800&width=800"
-                    }}
-                  />
+                  <div className="relative w-full h-full" onClick={() => post.lockedPost && handleLockedImageClick()}>
+                    <img
+                      src={
+                        post.postImage.startsWith("http")
+                          ? post.postImage.includes("wsrv.nl")
+                            ? post.postImage
+                            : `https://wsrv.nl/?url=${encodeURIComponent(post.postImage)}&w=800&h=1000&fit=cover`
+                          : post.postImage
+                      }
+                      alt="Post"
+                      className={`w-full h-full object-cover ${post.lockedPost ? "brightness-75" : ""}`}
+                      onError={(e) => {
+                        e.currentTarget.src = "/placeholder.svg?height=800&width=800"
+                      }}
+                    />
+                    {post.lockedPost && (
+                      <div className="absolute top-3 right-3 bg-black/60 rounded-full p-1.5 cursor-pointer">
+                        <Lock className="w-4 h-4 text-white" />
+                      </div>
+                    )}
+                  </div>
                 )}
               </div>
 
@@ -754,21 +906,40 @@ export function InstagramFeed({ profileData, username, followingFeed = [] }: Ins
               <div className="px-3 py-2">
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-4">
-                    <Heart className="w-[26px] h-[26px]" onClick={handleBlockedAction} />
+                    {post.userLiked ? (
+                      <Heart
+                        className="w-[26px] h-[26px] fill-red-500 text-red-500"
+                        onClick={handleBlockedAction}
+                      />
+                    ) : (
+                      <Heart className="w-[26px] h-[26px]" onClick={handleBlockedAction} />
+                    )}
                     <MessageCircle className="w-[26px] h-[26px]" onClick={handleBlockedAction} />
                     <Send className="w-[26px] h-[26px] rotate-[25deg]" />
                   </div>
                   <Bookmark className="w-6 h-6" />
                 </div>
 
-                <p className="font-semibold text-sm mb-1">{post.likes} likes</p>
+                <p className="font-semibold text-sm mb-1">{post.likes.toLocaleString()} likes</p>
 
                 <div className="text-sm leading-tight">
                   <span className="font-semibold mr-2">{post.username}</span>
                   <span className="text-gray-300">{post.caption}</span>
                 </div>
 
-                {post.comments > 0 && <p className="text-gray-500 text-sm mt-1">View all {post.comments} comments</p>}
+                {/* Hot comment for locked/hot girl posts */}
+                {post.hotComment && (
+                  <div className="mt-1.5 flex items-start gap-1">
+                    <span className="font-semibold text-sm text-white flex-shrink-0">{post.hotComment.user}</span>
+                    <span className="text-gray-300 text-sm">{post.hotComment.text}</span>
+                  </div>
+                )}
+
+                {post.comments > 0 && (
+                  <p className="text-gray-500 text-sm mt-1 cursor-pointer" onClick={handleBlockedAction}>
+                    View all {post.comments.toLocaleString()} comments
+                  </p>
+                )}
 
                 <p className="text-gray-500 text-[11px] mt-1 uppercase">{post.date}</p>
               </div>
